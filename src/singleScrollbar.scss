@@ -1,0 +1,7 @@
+.repos-changes-viewer-container {
+  height: auto !important; // Override inline style
+}
+.repos-summary-code-diff {
+  height: auto !important; // Override inline style
+  overflow-y: hidden !important; // Override inline style
+}
