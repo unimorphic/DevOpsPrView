@@ -22,5 +22,5 @@
   "manifest_version": 3,
   "name": "Azure DevOps PR View",
   "permissions": ["scripting", "webNavigation"],
-  "version": "0.1"
+  "version": "0.2"
 }
