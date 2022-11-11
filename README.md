@@ -4,8 +4,8 @@ Chrome browser plugin which improves the Azure DevOps pull request (PR) view to 
 
 ## Features ##
 
-### Single Scrollbar ###
-Removes the scrollbars on individual files when viewing the files in a PR
+### Single Vertical Scrollbar ###
+Removes the vertical scrollbars on individual files when viewing the files in a PR
 
 Before
 

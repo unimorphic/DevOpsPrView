@@ -11,7 +11,7 @@ chrome.webNavigation.onCompleted.addListener(
     });
 
     chrome.scripting.insertCSS({
-      files: ["fullScreenToggle.css", "singleScrollbar.css"],
+      files: ["fullScreenToggle.css", "singleVerticalScrollbar.css"],
       target: currentTab,
     });
   },

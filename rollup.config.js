@@ -29,8 +29,8 @@ const outputDir = "dist";
 
 const inputs = [
   "src/background.ts",
-  "src/fullScreenToggle.ts",
-  "src/singleScrollbar.scss",
+  "src/fullScreenToggle/fullScreenToggle.ts",
+  "src/singleVerticalScrollbar.scss",
 ];
 
 const staticFiles = ["static/*"];
