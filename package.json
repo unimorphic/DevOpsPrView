@@ -4,19 +4,26 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "start": "vite build --watch",
-    "build": "vite build"
+    "start": "rollup -c -w",
+    "build": "rollup -c"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "1.1.0",
+    "@henrikjoreteg/rollup-plugin-css": "2.0.0",
+    "@rollup/plugin-node-resolve": "15.0.1",
+    "@rollup/plugin-terser": "0.1.0",
+    "@rollup/plugin-typescript": "9.0.2",
     "@tsconfig/svelte": "3.0.0",
     "@types/chrome": "0.0.200",
+    "rollup": "3.2.5",
+    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-delete": "2.0.0",
+    "rollup-plugin-scss": "3.0.0",
+    "rollup-plugin-svelte": "7.1.0",
     "sass": "1.55.0",
     "svelte": "3.52.0",
     "svelte-check": "2.9.2",
     "svelte-preprocess": "4.10.7",
     "tslib": "2.4.0",
-    "typescript": "4.8.4",
-    "vite": "3.2.1"
+    "typescript": "4.8.4"
   }
 }
