@@ -2,6 +2,7 @@
 
 Chrome browser plugin which improves the Azure DevOps pull request (PR) view to make code reviews easier
 
+
 ## Features ##
 
 ### Single Vertical Scrollbar ###
@@ -25,3 +26,13 @@ Before
 After
 
 ![fullScreenToggleAfter.png](static/images/fullScreenToggle/after.png)
+
+
+## Feedback ##
+
+[Submit](https://bitbucket.org/unimorphic/azuredevopsprview/issues/new) bug reports and other feedback in the [issues](https://bitbucket.org/unimorphic/azuredevopsprview/issues?status=new&status=open) section
+
+
+## License ##
+
+MIT
