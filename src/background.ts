@@ -1,5 +1,9 @@
 import features, { getFeatureStorageValue, type FeatureKey } from "./features";
 
+chrome.action.onClicked.addListener(() => {
+  chrome.runtime.openOptionsPage();
+});
+
 chrome.webNavigation.onCompleted.addListener(
   async function (navigation) {
     const currentTab = {

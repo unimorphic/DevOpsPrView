@@ -1,9 +1,11 @@
 # Azure DevOps PR View #
 
-Chrome browser plugin which improves the Azure DevOps pull request (PR) view to make code reviews easier
+Chrome browser extension which improves the Azure DevOps pull request (PR) view to make code reviews easier
 
 
 ## Features ##
+
+All of the below features can be enabled/disabled via the extension's options page
 
 ### Single Vertical Scrollbar ###
 Removes the vertical scrollbars on individual files when viewing the files in a PR
@@ -17,7 +19,7 @@ After
 ![singleScrollbarAfter.png](static/images/singleVerticalScrollbar/after.png)
 
 ### Additional Full Screen Toggle Buttons ###
-Adds a button to view in full screen mode when viewing a single commit & when creating a new PR. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut 'z' is also supported.
+Adds a button to view in full screen mode when viewing a single commit and when creating a new PR. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut 'z' is also supported.
 
 Before
 
