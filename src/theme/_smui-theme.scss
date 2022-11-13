@@ -1,0 +1,21 @@
+@use "sass:color";
+
+@use "@material/theme/color-palette";
+
+@use "@material/theme/index" as theme with (
+  $primary: rgb(0, 120, 212),
+  $secondary: #ffffff,
+  $surface: #ffffff,
+  $background: #f8f8f8,
+  $error: color-palette.$red-900,
+  $on-surface: rgba(0, 0, 0, 0.9)
+);
+
+@use "./common.scss";
+
+:root {
+  --theme-border: rgba(0, 0, 0, 0.08);
+  --theme-scrollbar: rgba(0, 0, 0, 0.2);
+  --theme-shadow: rgba(0, 0, 0, 0.132);
+  --theme-shadow-secondary: rgba(0, 0, 0, 0.108);
+}

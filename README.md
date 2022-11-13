@@ -9,19 +9,19 @@ Removes the vertical scrollbars on individual files when viewing the files in a 
 
 Before
 
-![singleScrollbarBefore.png](readmeImages/singleScrollbarBefore.png)
+![singleScrollbarBefore.png](static/images/singleVerticalScrollbar/before.png)
 
 After
 
-![singleScrollbarAfter.png](readmeImages/singleScrollbarAfter.png)
+![singleScrollbarAfter.png](static/images/singleVerticalScrollbar/after.png)
 
 ### Commit Full Screen Toggle ###
-Adds a button to view in full screen mode when viewing a single commit. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut "z" is also supported.
+Adds a button to view in full screen mode when viewing a single commit. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut 'z' is also supported.
 
 Before
 
-![fullScreenToggleBefore.png](readmeImages/fullScreenToggleBefore.png)
+![fullScreenToggleBefore.png](static/images/fullScreenToggle/before.png)
 
 After
 
-![fullScreenToggleAfter.png](readmeImages/fullScreenToggleAfter.png)
+![fullScreenToggleAfter.png](static/images/fullScreenToggle/after.png)

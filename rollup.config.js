@@ -2,6 +2,7 @@ import css from "@henrikjoreteg/rollup-plugin-css";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
+import { exec } from "child_process";
 import { readdirSync } from "fs";
 import { parse } from "path";
 import copy from "rollup-plugin-copy";
@@ -10,14 +11,14 @@ import scss from "rollup-plugin-scss";
 import svelte from "rollup-plugin-svelte";
 import svelteConfig from "./svelte.config.js";
 
-function readAllFiles(folder) {
+export function readAllFiles(folder, filter) {
   let files = [];
   const children = readdirSync(folder, { withFileTypes: true });
   for (const child of children) {
     const childName = folder + "/" + child.name;
     if (child.isDirectory()) {
-      files = files.concat(readAllFiles(childName));
-    } else {
+      files = files.concat(readAllFiles(childName, filter));
+    } else if (!filter || filter(childName)) {
       files.push(childName);
     }
   }
@@ -30,18 +31,47 @@ const outputDir = "dist";
 const inputs = [
   "src/background.ts",
   "src/fullScreenToggle/fullScreenToggle.ts",
+  "src/options/options.ts",
   "src/singleVerticalScrollbar.scss",
 ];
 
-const staticFiles = ["static/*"];
+const staticFiles = ["src/*/*.html", "static/*"];
 
-const firstRunPlugins = [del({ targets: outputDir + "/*" })];
+const firstRunPlugins = [del({ runOnce: true, targets: outputDir + "/*" })];
 
 const lastRunPlugins = [
+  {
+    name: "smui-theme",
+    buildEnd() {
+      function onOutput(ex, output, error) {
+        if (output) {
+          console.log(output);
+        }
+        if (error) {
+          console.log(error);
+        }
+      }
+
+      exec(
+        '"node_modules/.bin/smui-theme" compile dist/smui.css -i src/theme',
+        onOutput
+      );
+      exec(
+        '"node_modules/.bin/smui-theme" compile dist/smui-dark.css -i src/theme/dark',
+        onOutput
+      );
+    },
+  },
   {
     name: "watch-additional-files",
     buildStart() {
       for (const file of readAllFiles("static")) {
+        this.addWatchFile(file);
+      }
+      for (const file of readAllFiles("src/theme")) {
+        this.addWatchFile(file);
+      }
+      for (const file of readAllFiles("src", (f) => f.endsWith(".html"))) {
         this.addWatchFile(file);
       }
     },
@@ -76,6 +106,7 @@ export default inputs.map((file, index) => {
     input: file,
     output: {
       file: outputDir + "/" + parse(file).name + ".js",
+      format: "iife",
     },
     plugins: plugins,
   };

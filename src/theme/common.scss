@@ -1,0 +1,123 @@
+@use "@material/theme/index" as theme;
+
+:root {
+  --mdc-theme-primary: #{theme.$primary};
+  --mdc-theme-error: #{theme.$error};
+  --mdc-switch-state-layer-size: 34px;
+  --mdc-switch-selected-focus-handle-color: #{theme.$primary};
+  --mdc-switch-selected-handle-color: #{theme.$primary};
+  --mdc-switch-selected-hover-handle-color: #{theme.$primary};
+  --mdc-switch-selected-pressed-handle-color: #{theme.$primary};
+  --mdc-switch-unselected-focus-handle-color: #{theme.$error};
+  --mdc-switch-unselected-handle-color: #{theme.$error};
+  --mdc-switch-unselected-hover-handle-color: #{theme.$error};
+  --mdc-switch-unselected-pressed-handle-color: #{theme.$error};
+}
+
+body {
+  &::-webkit-scrollbar {
+    height: 18px;
+    width: 18px;
+  }
+  &::-webkit-scrollbar-thumb {
+    &:hover {
+      border-width: 4px;
+    }
+    background: var(--theme-scrollbar);
+    background-clip: padding-box;
+    border: 6px solid transparent;
+    border-radius: 10px;
+  }
+
+  background-color: theme.$background;
+  color: theme.$on-surface;
+  font-size: 16px;
+  margin: 0;
+  scrollbar-width: thin;
+}
+
+#app {
+  & > hr {
+    margin-left: -32px;
+    margin-right: -32px;
+  }
+  
+  padding: 32px;
+}
+
+h1 {
+  font-size: 21px;
+  margin-bottom: 32px;
+  margin-top: 0;
+}
+
+hr {
+  background: var(--theme-border);
+  border: none;
+  height: 1px;
+  margin: 0;
+}
+
+div.mdc-circular-progress {
+  & > .mdc-circular-progress__determinate-container,
+  & > .mdc-circular-progress__indeterminate-container {
+    width: 32px;
+  }
+
+  box-sizing: border-box;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+
+button.mdc-icon-button {
+  &.mdc-ripple-upgraded .mdc-icon-button__ripple::before {
+    transform: scale(1);
+  }
+  .mdc-icon-button__ripple {
+    &::after {
+      --mdc-ripple-fg-scale: 1;
+      border-radius: 0;
+    }
+    &::before {
+      border-radius: 0;
+    }
+  }
+}
+
+div.smui-accordion .smui-accordion__panel {
+  &.smui-accordion__panel--open {
+    & > .smui-paper__content {
+      padding: 0;
+    }
+
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+
+  &.smui-accordion__panel--raised.smui-accordion__panel--elevation-z1::before {
+    box-shadow: 0 3.2px 7.2px 0 var(--theme-shadow),
+      0 0.6px 1.8px 0 var(--theme-shadow-secondary);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  & > .smui-accordion__header {
+    .smui-accordion__header__title {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 0;
+    }
+    button {
+      vertical-align: middle;
+    }
+    background-color: theme.$secondary;
+    border-bottom: 1px solid var(--theme-border);
+  }
+
+  margin-bottom: 8px;
+}
