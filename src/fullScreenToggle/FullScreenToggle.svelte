@@ -8,9 +8,10 @@
   }
 
   function onKeyDownDocument(event: KeyboardEvent): void {
+    const inputElements = ["TEXTAREA", "INPUT"];
     if (
       event.key === "z" &&
-      (event.target as HTMLElement).nodeName !== "TEXTAREA"
+      !inputElements.includes((event.target as HTMLElement).nodeName)
     ) {
       toggleFullScreenMode();
       event.preventDefault();
@@ -21,11 +22,14 @@
     const toggleClassBySelector = {
       ".bolt-header": "bolt-header-full-screen",
       ".bolt-header-title": "title-m",
+      ".repos-pr-create-header-first-row": "title-m",
       body: "full-screen-mode",
     };
     for (const selector of Object.keys(toggleClassBySelector)) {
       const element = document.querySelector(selector);
-      element.classList.toggle(toggleClassBySelector[selector]);
+      if (element) {
+        element.classList.toggle(toggleClassBySelector[selector]);
+      }
     }
 
     const hideSelectors = [
@@ -33,10 +37,13 @@
       ".bolt-header-title .bolt-clipboard-button",
       ".bolt-header-title-area .secondary-text",
       ".bolt-tabbar",
+      ".repos-pr-create-header > .flex-column > .flex-row",
     ];
     for (const selector of hideSelectors) {
       const element = document.querySelector(selector) as HTMLElement;
-      element.style.display = element.style.display === "none" ? "" : "none";
+      if (element) {
+        element.style.display = element.style.display === "none" ? "" : "none";
+      }
     }
 
     window.dispatchEvent(new Event("resize"));

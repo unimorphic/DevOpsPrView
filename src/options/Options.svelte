@@ -25,10 +25,10 @@
       title="Single Vertical Scrollbar"
     />
     <Option
-      description="Adds a button to view in full screen mode when viewing a single commit. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut 'z' is also supported."
+      description="Adds a button to view in full screen mode when viewing a single commit & when creating a new PR. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut 'z' is also supported."
       feature="fullScreenToggle"
       {storageValues}
-      title="Commit Full Screen Toggle"
+      title="Additional Full Screen Toggle Buttons"
     />
   </Accordion>
 {/if}

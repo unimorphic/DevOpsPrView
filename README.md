@@ -16,8 +16,8 @@ After
 
 ![singleScrollbarAfter.png](static/images/singleVerticalScrollbar/after.png)
 
-### Commit Full Screen Toggle ###
-Adds a button to view in full screen mode when viewing a single commit. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut 'z' is also supported.
+### Additional Full Screen Toggle Buttons ###
+Adds a button to view in full screen mode when viewing a single commit & when creating a new PR. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut 'z' is also supported.
 
 Before
 

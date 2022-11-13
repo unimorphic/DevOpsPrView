@@ -10,15 +10,18 @@ function mountFullScreenToggleIfNeeded(): void {
     mounted = false;
   }
 
-  if (!mounted && location.href.includes("/commit/")) {
+  const urls = ["/commit/", "/pullrequestcreate"];
+  if (urls.some((url) => location.href.includes(url))) {
     const toolbar = document.querySelector(".repos-compare-toolbar");
     const fullScreenToggle = document.getElementById("__bolt-fullscreen");
 
     if (fullScreenToggle) {
       mounted = true;
-    } else if (toolbar) {
+    } else if (toolbar && !mounted) {
       mounted = true;
       component = new FullScreenToggle({ target: toolbar });
+    } else {
+      mounted = false;
     }
   }
 
