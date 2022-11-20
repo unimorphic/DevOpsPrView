@@ -40,6 +40,17 @@ After
 
 ![codeZoomAfter.png](src/codeZoom/images/after.png)
 
+### True Full Screen ###
+Toggles the browser's full screen mode when a full screen mode button is clicked
+
+Before
+
+![trueFullScreenBefore.png](src/trueFullScreen/images/before.png)
+
+After
+
+![trueFullScreenAfter.png](src/trueFullScreen/images/after.png)
+
 
 ## Feedback ##
 

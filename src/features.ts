@@ -30,6 +30,7 @@ const features = makeFeatureMap({
     jsFileIsolated: true,
   },
   singleVerticalScrollbar: { cssFile: true, enabledByDefault: true },
+  trueFullScreen: { jsFileIsolated: true },
 });
 
 export type FeatureKey = keyof typeof features;

@@ -68,5 +68,3 @@ chrome.webNavigation.onCommitted.addListener(
   },
   { url: [{ hostEquals: "dev.azure.com" }] }
 );
-
-export {};

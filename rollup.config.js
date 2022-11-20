@@ -46,6 +46,10 @@ const inputs = [
     input: "src/singleVerticalScrollbar/singleVerticalScrollbar.scss",
     outputDir: "singleVerticalScrollbar/",
   },
+  {
+    input: "src/trueFullScreen/trueFullScreen.ts",
+    outputDir: "trueFullScreen/",
+  },
 ];
 
 const staticFiles = ["src/*/*.html", "src/*/images/*", "static/*"];

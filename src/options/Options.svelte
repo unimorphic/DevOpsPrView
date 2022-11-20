@@ -5,6 +5,7 @@
   import features from "../features";
   import FullScreenToggleOption from "../fullScreenToggle/FullScreenToggleOption.svelte";
   import SingleVerticalScrollbarOption from "../singleVerticalScrollbar/SingleVerticalScrollbarOption.svelte";
+  import TrueFullScreenOption from "../trueFullScreen/TrueFullScreenOption.svelte";
 
   let storageValues: { [key: string]: any } | null = null;
 
@@ -23,5 +24,6 @@
     <SingleVerticalScrollbarOption {storageValues} />
     <FullScreenToggleOption {storageValues} />
     <CodeZoomOption {storageValues} />
+    <TrueFullScreenOption {storageValues} />
   </Accordion>
 {/if}

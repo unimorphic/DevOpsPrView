@@ -9,5 +9,6 @@
   {storageValues}
   title="Single Vertical Scrollbar"
 >
-  Removes the vertical scrollbars on individual files when viewing the files in a PR
+  Removes the vertical scrollbars on individual files when viewing the files in
+  a PR
 </Option>
