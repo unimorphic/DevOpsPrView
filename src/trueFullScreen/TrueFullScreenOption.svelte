@@ -5,6 +5,6 @@
 </script>
 
 <Option feature="trueFullScreen" {storageValues} title="True Full Screen">
-  Toggles the browser's full screen mode when a full screen mode button is
-  clicked
+  Toggles the browser's full screen mode when full screen mode is toggled via a
+  button or the keyboard shortcut 'z'
 </Option>

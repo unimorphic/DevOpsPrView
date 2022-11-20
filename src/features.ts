@@ -19,6 +19,7 @@ function makeFeatureMap<T extends Record<string, Feature>>(
 }
 
 const features = makeFeatureMap({
+  autoCollapseLeftPanel: { jsFileIsolated: true },
   codeZoom: {
     defaultData: 0,
     jsFileIsolated: true,

@@ -1,6 +1,7 @@
 <script lang="ts">
   import Accordion from "@smui-extra/accordion";
   import CircularProgress from "@smui/circular-progress";
+  import AutoCollapseLeftPanelOption from "../autoCollapseLeftPanel/AutoCollapseLeftPanelOption.svelte";
   import CodeZoomOption from "../codeZoom/CodeZoomOption.svelte";
   import features from "../features";
   import FullScreenToggleOption from "../fullScreenToggle/FullScreenToggleOption.svelte";
@@ -25,5 +26,6 @@
     <FullScreenToggleOption {storageValues} />
     <CodeZoomOption {storageValues} />
     <TrueFullScreenOption {storageValues} />
+    <AutoCollapseLeftPanelOption {storageValues} />
   </Accordion>
 {/if}

@@ -11,7 +11,8 @@ import {
   zoomToFontSize,
 } from "./codeZoomShared";
 
-let configuredElements: HTMLElement[] = [];
+let configuredContainers: HTMLElement[] = [];
+let configuredEditors: HTMLElement[] = [];
 let storageValue: FeatureStorageValue<number>;
 
 const fontSizeObserver = new MutationObserver((mutations: MutationRecord[]) => {
@@ -48,10 +49,17 @@ function configureZoomElements(): void {
   for (const container of codeContainers) {
     container.style.fontSize = fontSize;
 
-    if (!configuredElements.includes(container)) {
+    if (!configuredContainers.includes(container)) {
       container.addEventListener("wheel", onWheelCodeContainer);
     }
   }
+
+  for (const container of configuredContainers) {
+    if (!codeContainers.includes(container)) {
+      container.removeEventListener("wheel", onWheelCodeContainer);
+    }
+  }
+  configuredContainers = codeContainers;
 
   const editors = querySelectorAll(".vss-base-editor");
   for (const editor of editors) {
@@ -65,21 +73,20 @@ function configureZoomElements(): void {
     while (Math.abs(editorZoom - zoom) >= 1) {
       const delta = zoom > editorZoom ? 1 : -1;
       fontElement.dispatchEvent(
-        new WheelEvent("wheel", {
-          bubbles: true,
-          ctrlKey: true,
-          deltaY: delta,
-        })
+        new WheelEvent("wheel", { bubbles: true, ctrlKey: true, deltaY: delta })
       );
       editorZoom += delta;
     }
 
-    if (!configuredElements.includes(editor)) {
+    if (!configuredEditors.includes(editor)) {
       fontSizeObserver.observe(fontElement, { attributes: true });
     }
   }
 
-  configuredElements = codeContainers.concat(editors);
+  if (configuredEditors.length > 0 && editors.length <= 0) {
+    fontSizeObserver.disconnect();
+  }
+  configuredEditors = editors;
 }
 
 getFeatureValueFromStorage<number>("codeZoom").then((value) => {

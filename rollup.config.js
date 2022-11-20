@@ -35,6 +35,10 @@ export function readAllFiles(folder, filter) {
 const outputDir = "dist";
 
 const inputs = [
+  {
+    input: "src/autoCollapseLeftPanel/autoCollapseLeftPanel.ts",
+    outputDir: "autoCollapseLeftPanel/",
+  },
   { input: "src/background.ts", outputDir: "" },
   { input: "src/codeZoom/codeZoom.ts", outputDir: "codeZoom/" },
   {

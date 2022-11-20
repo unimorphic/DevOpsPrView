@@ -41,7 +41,7 @@ After
 ![codeZoomAfter.png](src/codeZoom/images/after.png)
 
 ### True Full Screen ###
-Toggles the browser's full screen mode when a full screen mode button is clicked
+Toggles the browser's full screen mode when full screen mode is toggled via a button or the keyboard shortcut 'z'
 
 Before
 
@@ -50,6 +50,17 @@ Before
 After
 
 ![trueFullScreenAfter.png](src/trueFullScreen/images/after.png)
+
+### Collapse Left Panel on Full Screen ###
+Collapses/expands the left panel when full screen mode is toggled via a button or the keyboard shortcut 'z'
+
+Before
+
+![autoCollapseLeftPanelBefore.png](src/autoCollapseLeftPanel/images/before.png)
+
+After
+
+![autoCollapseLeftPanelAfter.png](src/autoCollapseLeftPanel/images/after.png)
 
 
 ## Feedback ##
