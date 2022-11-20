@@ -11,6 +11,12 @@ import scss from "rollup-plugin-scss";
 import svelte from "rollup-plugin-svelte";
 import svelteConfig from "./svelte.config.js";
 
+function getInputOutputFile(inputInfo) {
+  return (
+    outputDir + "/" + inputInfo.outputDir + parse(inputInfo.input).name + ".js"
+  );
+}
+
 export function readAllFiles(folder, filter) {
   let files = [];
   const children = readdirSync(folder, { withFileTypes: true });
@@ -29,13 +35,20 @@ export function readAllFiles(folder, filter) {
 const outputDir = "dist";
 
 const inputs = [
-  "src/background.ts",
-  "src/fullScreenToggle/fullScreenToggle.ts",
-  "src/options/options.ts",
-  "src/singleVerticalScrollbar.scss",
+  { input: "src/background.ts", outputDir: "" },
+  { input: "src/codeZoom/codeZoom.ts", outputDir: "codeZoom/" },
+  {
+    input: "src/fullScreenToggle/fullScreenToggle.ts",
+    outputDir: "fullScreenToggle/",
+  },
+  { input: "src/options/options.ts", outputDir: "options/" },
+  {
+    input: "src/singleVerticalScrollbar/singleVerticalScrollbar.scss",
+    outputDir: "singleVerticalScrollbar/",
+  },
 ];
 
-const staticFiles = ["src/*/*.html", "static/*"];
+const staticFiles = ["src/*/*.html", "src/*/images/*", "static/*"];
 
 const firstRunPlugins = [del({ runOnce: true, targets: outputDir + "/*" })];
 
@@ -77,17 +90,18 @@ const lastRunPlugins = [
     },
   },
   copy({
+    flatten: false,
     targets: staticFiles.map((file) => ({ src: file, dest: outputDir })),
   }),
   del({
     hook: "writeBundle",
     targets: inputs
-      .filter((f) => f.endsWith(".scss"))
-      .map((f) => outputDir + "/" + parse(f).name + ".js"),
+      .filter((inputInfo) => inputInfo.input.endsWith(".scss"))
+      .map((inputInfo) => getInputOutputFile(inputInfo)),
   }),
 ];
 
-export default inputs.map((file, index) => {
+export default inputs.map((inputInfo, index) => {
   let plugins = [
     scss({ outputStyle: "compressed" }),
     svelte({ preprocess: svelteConfig.preprocess }),
@@ -103,9 +117,9 @@ export default inputs.map((file, index) => {
   }
 
   return {
-    input: file,
+    input: inputInfo.input,
     output: {
-      file: outputDir + "/" + parse(file).name + ".js",
+      file: getInputOutputFile(inputInfo),
       format: "iife",
     },
     plugins: plugins,

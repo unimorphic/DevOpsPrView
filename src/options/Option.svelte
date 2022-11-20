@@ -3,18 +3,34 @@
   import FormField from "@smui/form-field";
   import IconButton, { Icon } from "@smui/icon-button";
   import Switch from "@smui/switch";
-  import { getFeatureStorageValue, type FeatureKey } from "../features";
+  import features, {
+    getFeatureStorageValue,
+    setFeatureStorageValue,
+    type FeatureKey,
+  } from "../features";
   import Arrow from "./Arrow.svelte";
 
-  export let description: string;
   export let feature: FeatureKey;
   export let storageValues: { [key: string]: any };
   export let title: string;
 
-  let featureStorageValue = getFeatureStorageValue(feature, storageValues);
+  let featureStorageValue = getFeatureStorageValue<unknown>(
+    feature,
+    storageValues
+  );
 
-  function onChange(): void {
-    chrome.storage.local.set({ [feature]: featureStorageValue });
+  function onChangeIsEnabled(): void {
+    featureStorageValue.data = features[feature].defaultData;
+    setFeatureStorageValue(feature, featureStorageValue);
+  }
+
+  function onChangeIsExpanded(): void {
+    setFeatureStorageValue(feature, featureStorageValue);
+  }
+
+  function onUpdateData(data: unknown): void {
+    featureStorageValue.data = data;
+    setFeatureStorageValue(feature, featureStorageValue);
   }
 </script>
 
@@ -23,7 +39,7 @@
     <IconButton
       toggle
       bind:pressed={featureStorageValue.isOptionExpanded}
-      on:SMUIIconButtonToggle:change={onChange}
+      on:SMUIIconButtonToggle:change={onChangeIsExpanded}
     >
       <Icon on><Arrow /></Icon>
       <Icon><Arrow rotate /></Icon>
@@ -33,7 +49,7 @@
       <Switch
         bind:checked={featureStorageValue.isEnabled}
         icons={false}
-        on:SMUISwitch:change={onChange}
+        on:SMUISwitch:change={onChangeIsEnabled}
       />
       <span
         slot="label"
@@ -46,15 +62,21 @@
     </FormField>
   </Header>
   <Content>
-    <div class="description">{description}</div>
+    <div class="description">
+      <slot {featureStorageValue} {onUpdateData} />
+    </div>
     <div class="images">
       <div>
         <div>Before</div>
-        <img alt="before" src={"/images/" + feature + "/before.png"} />
+        <slot name="beforeImage">
+          <img alt="before" src={`/${feature}/images/before.png`} />
+        </slot>
       </div>
       <div>
         <div>After</div>
-        <img alt="after" src={"/images/" + feature + "/after.png"} />
+        <slot name="afterImage">
+          <img alt="after" src={`/${feature}/images/after.png`} />
+        </slot>
       </div>
     </div>
   </Content>
@@ -75,6 +97,7 @@
       display: flex;
       flex: 1;
       flex-direction: column;
+      min-width: 0;
       padding: 20px 24px;
     }
     & img {
