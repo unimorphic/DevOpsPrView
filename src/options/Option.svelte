@@ -8,7 +8,7 @@
     setFeatureStorageValue,
     type FeatureKey,
   } from "../features";
-  import Arrow from "./Arrow.svelte";
+  import ArrowIcon from "./ArrowIcon.svelte";
 
   export let feature: FeatureKey;
   export let storageValues: { [key: string]: any };
@@ -41,8 +41,8 @@
       bind:pressed={featureStorageValue.isOptionExpanded}
       on:SMUIIconButtonToggle:change={onChangeIsExpanded}
     >
-      <Icon on><Arrow /></Icon>
-      <Icon><Arrow rotate /></Icon>
+      <Icon on><ArrowIcon /></Icon>
+      <Icon><ArrowIcon rotate /></Icon>
     </IconButton>
     {title}
     <FormField slot="icon">
