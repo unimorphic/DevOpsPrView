@@ -42,6 +42,10 @@ const inputs = [
   { input: "src/background.ts", outputDir: "" },
   { input: "src/codeZoom/codeZoom.ts", outputDir: "codeZoom/" },
   {
+    input: "src/commentHighlightToggle/commentHighlightToggle.ts",
+    outputDir: "commentHighlightToggle/",
+  },
+  {
     input: "src/fullScreenToggle/fullScreenToggle.ts",
     outputDir: "fullScreenToggle/",
   },

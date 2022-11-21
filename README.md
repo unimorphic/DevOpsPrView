@@ -62,6 +62,17 @@ After
 
 ![autoCollapseLeftPanelAfter.png](src/autoCollapseLeftPanel/images/after.png)
 
+### Comment Highlight Toggle ###
+Adds a button that toggles the visibility of code comment highlights and remembers the visibility between sessions
+
+Before
+
+![commentHighlightToggleBefore.png](src/commentHighlightToggle/images/before.png)
+
+After
+
+![commentHighlightToggleAfter.png](src/commentHighlightToggle/images/after.png)
+
 
 ## Feedback ##
 

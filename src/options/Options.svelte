@@ -3,6 +3,7 @@
   import CircularProgress from "@smui/circular-progress";
   import AutoCollapseLeftPanelOption from "../autoCollapseLeftPanel/AutoCollapseLeftPanelOption.svelte";
   import CodeZoomOption from "../codeZoom/CodeZoomOption.svelte";
+  import CommentHighlightToggle from "../commentHighlightToggle/CommentHighlightToggleOption.svelte";
   import features from "../features";
   import FullScreenToggleOption from "../fullScreenToggle/FullScreenToggleOption.svelte";
   import SingleVerticalScrollbarOption from "../singleVerticalScrollbar/SingleVerticalScrollbarOption.svelte";
@@ -27,5 +28,6 @@
     <CodeZoomOption {storageValues} />
     <TrueFullScreenOption {storageValues} />
     <AutoCollapseLeftPanelOption {storageValues} />
+    <CommentHighlightToggle {storageValues} />
   </Accordion>
 {/if}

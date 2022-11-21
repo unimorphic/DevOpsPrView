@@ -25,6 +25,11 @@ const features = makeFeatureMap({
     jsFileIsolated: true,
     enabledByDefault: true,
   },
+  commentHighlightToggle: {
+    defaultData: true,
+    enabledByDefault: true,
+    jsFileIsolated: true,
+  },
   fullScreenToggle: {
     cssFile: true,
     enabledByDefault: true,
