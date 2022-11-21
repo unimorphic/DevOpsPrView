@@ -12,11 +12,11 @@ Removes the vertical scrollbars on individual files when viewing the files in a 
 
 Before
 
-![singleScrollbarBefore.png](src/singleVerticalScrollbar/images/before.png)
+![singleVerticalScrollbarBefore.png](src/singleVerticalScrollbar/images/before.png)
 
 After
 
-![singleScrollbarAfter.png](src/singleVerticalScrollbar/images/after.png)
+![singleVerticalScrollbarAfter.png](src/singleVerticalScrollbar/images/after.png)
 
 ### Additional Full Screen Toggle Buttons ###
 Adds a button to view in full screen mode when viewing a single commit and when creating a new PR. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut 'z' is also supported.
@@ -72,6 +72,17 @@ Before
 After
 
 ![commentHighlightToggleAfter.png](src/commentHighlightToggle/images/after.png)
+
+### Single Horizontal Scrollbar ###
+Removes the horizontal scrollbars on individual files when viewing the files in a PR. Side-by-side view is not affected.
+
+Before
+
+![singleHorizontalScrollbarBefore.png](src/singleHorizontalScrollbar/images/before.png)
+
+After
+
+![singleHorizontalScrollbarAfter.png](src/singleHorizontalScrollbar/images/after.png)
 
 
 ## Feedback ##

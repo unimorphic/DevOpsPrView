@@ -35,6 +35,7 @@ const features = makeFeatureMap({
     enabledByDefault: true,
     jsFileIsolated: true,
   },
+  singleHorizontalScrollbar: { cssFile: true },
   singleVerticalScrollbar: { cssFile: true, enabledByDefault: true },
   trueFullScreen: { jsFileIsolated: true },
 });

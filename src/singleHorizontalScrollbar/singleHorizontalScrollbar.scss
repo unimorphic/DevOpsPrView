@@ -1,0 +1,15 @@
+.repos-changes-viewer-container div.change-summary-card-content {
+  &:has(.repos-summary-diff-splitter) {
+    min-width: 0;
+  }
+  min-width: auto;
+}
+
+div.repos-summary-code-diff,
+div.repos-summary-diff-container {
+  overflow-x: hidden;
+}
+
+.repos-summary-diff-splitter div.repos-summary-diff-container {
+  overflow-x: auto;
+}

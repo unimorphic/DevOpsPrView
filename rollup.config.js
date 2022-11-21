@@ -51,6 +51,10 @@ const inputs = [
   },
   { input: "src/options/options.ts", outputDir: "options/" },
   {
+    input: "src/singleHorizontalScrollbar/singleHorizontalScrollbar.scss",
+    outputDir: "singleHorizontalScrollbar/",
+  },
+  {
     input: "src/singleVerticalScrollbar/singleVerticalScrollbar.scss",
     outputDir: "singleVerticalScrollbar/",
   },

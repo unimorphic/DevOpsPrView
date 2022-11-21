@@ -6,6 +6,7 @@
   import CommentHighlightToggle from "../commentHighlightToggle/CommentHighlightToggleOption.svelte";
   import features from "../features";
   import FullScreenToggleOption from "../fullScreenToggle/FullScreenToggleOption.svelte";
+  import SingleHorizontalScrollbarOption from "../singleHorizontalScrollbar/SingleHorizontalScrollbarOption.svelte";
   import SingleVerticalScrollbarOption from "../singleVerticalScrollbar/SingleVerticalScrollbarOption.svelte";
   import TrueFullScreenOption from "../trueFullScreen/TrueFullScreenOption.svelte";
 
@@ -29,5 +30,6 @@
     <TrueFullScreenOption {storageValues} />
     <AutoCollapseLeftPanelOption {storageValues} />
     <CommentHighlightToggle {storageValues} />
+    <SingleHorizontalScrollbarOption {storageValues} />
   </Accordion>
 {/if}
