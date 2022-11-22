@@ -14,6 +14,7 @@
   import CloseIcon from "./CloseIcon.svelte";
   import OpenOptionsReason from "./OpenOptionsReason";
   import WarningIcon from "./WarningIcon.svelte";
+  import InfoIcon from "./InfoIcon.svelte";
 
   let storageValues: { [key: string]: any } | null = null;
   let openReason: OpenOptionsReason | null = null;
@@ -38,24 +39,27 @@
   on:SMUIBanner:closed={onCloseBanner}
   open={openReason !== null}
 >
-  <Label class="settings-banner-label" slot="label">
-    <div class="banner-content">
-      <div class="banner-warn-icon"><WarningIcon /></div>
-      <div>
-        {#if openReason === OpenOptionsReason.install}
-          Install successful, enable/disable the below features as desired. This
-          page can be opened again by clicking the extension button in the
-          extensions toolbar menu.
-        {:else if openReason === OpenOptionsReason.update}
-          New features have been added, enable/disable them below
-        {/if}
-      </div>
+  <Label slot="label">
+    <WarningIcon />
+    <div>
+      {#if openReason === OpenOptionsReason.install}
+        Install successful, enable/disable the below features as desired. This
+        page can be opened again by clicking the extension button in the
+        extensions toolbar menu.
+      {:else if openReason === OpenOptionsReason.update}
+        New features have been added, enable/disable them below
+      {/if}
     </div>
   </Label>
   <IconButton on:click={onCloseBanner} slot="actions">
-    <Icon><div class="banner-close-icon"><CloseIcon /></div></Icon>
+    <Icon><CloseIcon /></Icon>
   </IconButton>
 </Banner>
+
+<div class="info">
+  <InfoIcon />
+  Any open Azure DevOps pages must be reloaded after changing any of the below options
+</div>
 
 <hr />
 
@@ -75,33 +79,16 @@
 
 <style type="text/scss">
   :global(.settings-banner) {
-    & > :global(*) {
-      max-width: none;
-    }
-    background-color: rgba(67, 53, 25, 1);
-    border-bottom: none;
-    box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.4),
-      0 0.6px 1.8px 0 rgba(0, 0, 0, 0.32);
-    margin-bottom: 20px;
+    margin-bottom: 32px;
   }
-  :global(.settings-banner-label) {
-    padding: 24px 20px;
-    margin: 0;
-  }
-  .banner-content {
-    align-items: center;
-    display: flex;
-  }
-  .banner-close-icon {
+  .info {
     & > :global(svg) {
       display: block;
+      margin-right: 5px;
     }
-  }
-  .banner-warn-icon {
-    & > :global(svg) {
-      vertical-align: middle;
-    }
-    color: rgba(177, 133, 37, 1);
-    margin-right: 20px;
+    align-items: center;
+    display: flex;
+    font-size: 0.8em;
+    margin-bottom: 32px;
   }
 </style>

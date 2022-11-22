@@ -41,7 +41,7 @@ body {
     margin-left: -32px;
     margin-right: -32px;
   }
-  
+
   padding: 32px;
 }
 
@@ -56,6 +56,30 @@ hr {
   border: none;
   height: 1px;
   margin: 0;
+}
+
+div.mdc-banner {
+  .mdc-banner__content {
+    max-width: none;
+  }
+  .mdc-banner__text {
+    svg {
+      color: var(--theme-on-warn);
+      margin-right: 20px;
+    }
+
+    align-items: center;
+    display: flex;
+    padding: 24px 20px;
+    margin: 0;
+  }
+  svg {
+    display: block;
+  }
+  background-color: var(--theme-warn);
+  border-bottom: none;
+  box-shadow: 0 3.2px 7.2px 0 var(--theme-shadow),
+    0 0.6px 1.8px 0 var(--theme-shadow-secondary);
 }
 
 div.mdc-circular-progress {
