@@ -6,15 +6,20 @@
   import AutoCollapseLeftPanelOption from "../autoCollapseLeftPanel/AutoCollapseLeftPanelOption.svelte";
   import CodeZoomOption from "../codeZoom/CodeZoomOption.svelte";
   import CommentHighlightToggle from "../commentHighlightToggle/CommentHighlightToggleOption.svelte";
-  import features from "../features";
+  import features, {
+    getFeatureStorageValue,
+    setFeatureStorageValue,
+    type FeatureKey,
+  } from "../features";
   import FullScreenToggleOption from "../fullScreenToggle/FullScreenToggleOption.svelte";
   import SingleHorizontalScrollbarOption from "../singleHorizontalScrollbar/SingleHorizontalScrollbarOption.svelte";
   import SingleVerticalScrollbarOption from "../singleVerticalScrollbar/SingleVerticalScrollbarOption.svelte";
   import TrueFullScreenOption from "../trueFullScreen/TrueFullScreenOption.svelte";
-  import CloseIcon from "./CloseIcon.svelte";
+  import CloseIcon from "./icons/CloseIcon.svelte";
+  import ExpandIcon from "./icons/ExpandIcon.svelte";
+  import InfoIcon from "./icons/InfoIcon.svelte";
+  import WarningIcon from "./icons/WarningIcon.svelte";
   import OpenOptionsReason from "./OpenOptionsReason";
-  import WarningIcon from "./WarningIcon.svelte";
-  import InfoIcon from "./InfoIcon.svelte";
 
   let storageValues: { [key: string]: any } | null = null;
   let openReason: OpenOptionsReason | null = null;
@@ -27,8 +32,28 @@
     openReason = response;
   });
 
+  function onClickCollapseAll(): void {
+    toggleExpandCollapseAll(false);
+  }
+
+  function onClickExpandAll(): void {
+    toggleExpandCollapseAll(true);
+  }
+
   function onCloseBanner(): void {
     openReason = null;
+  }
+
+  async function toggleExpandCollapseAll(expand: boolean): Promise<void> {
+    const values = await chrome.storage.local.get(Object.keys(features));
+
+    for (const feature of Object.keys(features) as FeatureKey[]) {
+      const value = getFeatureStorageValue(feature, values);
+      value.isOptionExpanded = expand;
+      await setFeatureStorageValue(feature, value);
+    }
+    
+    storageValues = await chrome.storage.local.get(Object.keys(features));
   }
 </script>
 
@@ -43,11 +68,11 @@
     <WarningIcon />
     <div>
       {#if openReason === OpenOptionsReason.install}
-        Install successful, enable/disable the below features as desired. This
+        Install successful, enable/disable the below options as desired. This
         page can be opened again by clicking the extension button in the
         extensions toolbar menu.
       {:else if openReason === OpenOptionsReason.update}
-        New features have been added, enable/disable them below
+        New options have been added, enable/disable them below
       {/if}
     </div>
   </Label>
@@ -56,9 +81,20 @@
   </IconButton>
 </Banner>
 
-<div class="info">
-  <InfoIcon />
-  Any open Azure DevOps pages must be reloaded after changing any of the below options
+<div class="toolbar">
+  <div class="info">
+    <InfoIcon />
+    Any open Azure DevOps pages must be reloaded after changing any of the below
+    options
+  </div>
+  <div>
+    <IconButton on:click={onClickCollapseAll} title="Collapse All">
+      <Icon><ExpandIcon /></Icon>
+    </IconButton>
+    <IconButton on:click={onClickExpandAll} title="Expand All">
+      <Icon><ExpandIcon rotate /></Icon>
+    </IconButton>
+  </div>
 </div>
 
 <hr />
@@ -89,6 +125,11 @@
     align-items: center;
     display: flex;
     font-size: 0.8em;
+  }
+  .toolbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 32px;
   }
 </style>

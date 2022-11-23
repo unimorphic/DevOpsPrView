@@ -7,17 +7,20 @@
     getFeatureStorageValue,
     setFeatureStorageValue,
     type FeatureKey,
+    type FeatureStorageValue,
   } from "../features";
-  import ArrowIcon from "./ArrowIcon.svelte";
+  import ArrowIcon from "./icons/ArrowIcon.svelte";
 
   export let feature: FeatureKey;
   export let storageValues: { [key: string]: any };
   export let title: string;
 
-  let featureStorageValue = getFeatureStorageValue<unknown>(
-    feature,
-    storageValues
-  );
+  let featureStorageValue: FeatureStorageValue<unknown> | null = null;
+
+  function updateValue(values: { [key: string]: any }): void {
+    featureStorageValue = getFeatureStorageValue<unknown>(feature, values);
+  }
+  $: updateValue(storageValues);
 
   function onChangeIsEnabled(): void {
     featureStorageValue.data = features[feature].defaultData;

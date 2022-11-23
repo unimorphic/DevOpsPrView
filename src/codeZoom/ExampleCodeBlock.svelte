@@ -291,6 +291,7 @@
 
     background-color: rgba(255, 255, 255, 1);
     background-color: var(--callout-background-color, rgba(255, 255, 255, 1));
+    color: rgba(255, 255, 255, 0.95);
     font-family: "Segoe UI", "-apple-system", BlinkMacSystemFont, Roboto,
       "Helvetica Neue", Helvetica, Ubuntu, Arial, sans-serif,
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

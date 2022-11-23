@@ -65,8 +65,8 @@ export async function getFeatureValueFromStorage<T>(
 export function setFeatureStorageValue<T>(
   feature: FeatureKey,
   value: FeatureStorageValue<T>
-): void {
-  chrome.storage.local.set({ [feature]: value });
+): Promise<void> {
+  return chrome.storage.local.set({ [feature]: value });
 }
 
 export default features;
