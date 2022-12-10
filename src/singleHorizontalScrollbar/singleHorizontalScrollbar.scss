@@ -1,13 +1,19 @@
-.repos-changes-viewer-container div.change-summary-card-content {
-  &:has(.repos-summary-diff-splitter) {
-    min-width: 0;
+.repos-changes-viewer {
+  .bolt-card-content {
+    &:has(.repos-summary-diff-splitter) {
+      min-width: 0;
+    }
+    min-width: max-content;
   }
-  min-width: auto;
-}
 
-div.repos-summary-code-diff,
-div.repos-summary-diff-container {
-  overflow-x: hidden;
+  div.repos-summary-code-diff {
+    overflow-x: hidden;
+  }
+
+  div.repos-summary-diff-container {
+    overflow-x: hidden;
+    padding-right: 8px;
+  }
 }
 
 .repos-summary-diff-splitter div.repos-summary-diff-container {
