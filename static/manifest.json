@@ -23,5 +23,5 @@
   "name": "Azure DevOps PR View",
   "options_page": "options/options.html",
   "permissions": ["scripting", "storage", "webNavigation"],
-  "version": "0.5"
+  "version": "0.6"
 }

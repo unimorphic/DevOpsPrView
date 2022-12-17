@@ -57,7 +57,7 @@
       <span
         slot="label"
         style:color={featureStorageValue.isEnabled
-          ? "var(--mdc-theme-primary)"
+          ? "var(--mdc-theme-on-surface)"
           : "var(--mdc-theme-error)"}
       >
         {featureStorageValue.isEnabled ? "Enabled" : "Disabled"}
