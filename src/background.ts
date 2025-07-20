@@ -93,5 +93,7 @@ chrome.webNavigation.onCommitted.addListener(
       chrome.scripting.insertCSS({ files: cssFiles, target: currentTab });
     }
   },
-  { url: [{ hostEquals: "dev.azure.com" }] }
+  {
+    url: [{ hostEquals: "dev.azure.com" }, { hostSuffix: ".visualstudio.com" }],
+  }
 );
