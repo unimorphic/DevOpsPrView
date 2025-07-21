@@ -13,7 +13,6 @@
   } from "../../features";
   import FullScreenToggleOption from "../fullScreenToggle/FullScreenToggleOption.svelte";
   import SingleHorizontalScrollbarOption from "../singleHorizontalScrollbar/SingleHorizontalScrollbarOption.svelte";
-  import SingleVerticalScrollbarOption from "../singleVerticalScrollbar/SingleVerticalScrollbarOption.svelte";
   import TrueFullScreenOption from "../trueFullScreen/TrueFullScreenOption.svelte";
   import CloseIcon from "./icons/CloseIcon.svelte";
   import ExpandIcon from "./icons/ExpandIcon.svelte";
@@ -107,7 +106,6 @@
   <CircularProgress indeterminate />
 {:else}
   <Accordion multiple>
-    <SingleVerticalScrollbarOption {storageValues} />
     <FullScreenToggleOption {storageValues} />
     <CodeZoomOption {storageValues} />
     <TrueFullScreenOption {storageValues} />
