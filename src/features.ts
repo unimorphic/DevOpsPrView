@@ -48,7 +48,7 @@ export function getFeatureStorageValue<T>(
 ): FeatureStorageValue<T> {
   return !storageValues[feature]
     ? {
-        data: features[feature].defaultData,
+        data: features[feature].defaultData as T,
         isEnabled: features[feature].enabledByDefault ?? false,
         isOptionExpanded: true,
       }
@@ -58,7 +58,7 @@ export function getFeatureStorageValue<T>(
 export async function getFeatureValueFromStorage<T>(
   feature: FeatureKey
 ): Promise<FeatureStorageValue<T>> {
-  const storageValues = await chrome.storage.local.get([feature]);
+  const storageValues = await browser.storage.local.get([feature]);
   return getFeatureStorageValue(feature, storageValues);
 }
 
@@ -66,7 +66,7 @@ export function setFeatureStorageValue<T>(
   feature: FeatureKey,
   value: FeatureStorageValue<T>
 ): Promise<void> {
-  return chrome.storage.local.set({ [feature]: value });
+  return browser.storage.local.set({ [feature]: value });
 }
 
 export default features;

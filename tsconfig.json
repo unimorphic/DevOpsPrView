@@ -1,19 +1,8 @@
 {
+  "extends": ["./.wxt/tsconfig.json"],
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
     "isolatedModules": true,
-    "module": "ESNext",
-    "resolveJsonModule": true,
-    "target": "ESNext",
-    "useDefineForClassFields": true
-  },
-  "extends": "@tsconfig/svelte/tsconfig.json",
-  "include": [
-    "node_modules/@smui",
-    "src/**/*.d.ts",
-    "src/**/*.ts",
-    "src/**/*.js",
-    "src/**/*.svelte"
-  ]
+    "useDefineForClassFields": true,
+    "verbatimModuleSyntax": true
+  }
 }

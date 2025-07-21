@@ -1,0 +1,7 @@
+.repos-changes-viewer-container, .vss-Splitter--pane-fixed {
+  height: auto !important; /* Override inline style */
+}
+.repos-summary-code-diff, .repos-summary-diff-container {
+  height: auto !important; /* Override inline style */
+  overflow-y: hidden !important; /* Override inline style */
+}
