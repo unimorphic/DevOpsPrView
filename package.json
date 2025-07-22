@@ -8,8 +8,8 @@
     "build": "wxt build",
     "compile": "tsc --noEmit",
     "postinstall": "wxt prepare",
-    "start:firefox": "(if exist dist rmdir /s /q dist) && wxt -b firefox",
-    "start": "(if exist dist rmdir /s /q dist) && wxt",
+    "start:firefox": "wxt -b firefox",
+    "start": "wxt",
     "zip:firefox": "wxt zip -b firefox",
     "zip": "wxt zip"
   },

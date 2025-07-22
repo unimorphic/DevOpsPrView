@@ -20,7 +20,7 @@ export default defineBackground(() => {
     return null;
   }
 
-  browser.action.onClicked.addListener(() => {
+  (browser.browserAction ?? browser.action).onClicked.addListener(() => {
     browser.runtime.openOptionsPage();
   });
 

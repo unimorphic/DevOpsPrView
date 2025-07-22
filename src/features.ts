@@ -65,7 +65,9 @@ export function setFeatureStorageValue<T>(
   feature: FeatureKey,
   value: FeatureStorageValue<T>
 ): Promise<void> {
-  return browser.storage.local.set({ [feature]: value });
+  const cleanValue = JSON.parse(JSON.stringify(value)); // Remove Svelte proxy magic
+
+  return browser.storage.local.set({ [feature]: cleanValue });
 }
 
 export default features;

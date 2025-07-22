@@ -1,6 +1,14 @@
 import { defineConfig } from "wxt";
+import fs from "fs";
 
 export default defineConfig({
+  hooks: {
+    "build:before": () => {
+      if (fs.existsSync("dist")) {
+        fs.rmSync("dist", { recursive: true });
+      }
+    },
+  },
   manifest: {
     action: {
       default_icon: {
@@ -22,7 +30,7 @@ export default defineConfig({
     },
     name: "Azure DevOps PR View",
     permissions: ["scripting", "storage", "webNavigation"],
-    version: "0.6",
+    version: "0.7",
   },
   modules: ["@wxt-dev/module-svelte"],
   outDir: "dist",
