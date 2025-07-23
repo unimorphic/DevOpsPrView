@@ -1,13 +1,17 @@
-# Azure DevOps PR View #
+# Azure DevOps PR View
 
-Chrome browser extension which improves the Azure DevOps pull request (PR) view to make code reviews easier
+Browser extension which improves the Azure DevOps pull request (PR) view to make code reviews easier
 
+## Install
 
-## Features ##
+[Chrome Web Store](https://chromewebstore.google.com/detail/azure-devops-pr-view/imhdlkegjegakidnjoebonfmhklflnpl)
+
+## Features
 
 All of the below features can be enabled/disabled via the extension's options page
 
-### Additional Full Screen Toggle Buttons ###
+### Additional Full Screen Toggle Buttons
+
 Adds a button to view in full screen mode when viewing a single commit and when creating a new PR. Operates similar to the full screen mode when viewing the files in a PR. Keyboard shortcut 'z' is also supported.
 
 Before
@@ -18,7 +22,8 @@ After
 
 ![fullScreenToggleAfter.png](src/entrypoints/fullScreenToggle/images/after.png)
 
-### Code Zoom ###
+### Code Zoom
+
 Enables changing the zoom of code blocks by using ctrl + mouse wheel or manually via the options page and remembers the zoom level between sessions
 
 Before
@@ -29,7 +34,8 @@ After
 
 ![codeZoomAfter.png](src/entrypoints/codeZoom/images/after.png)
 
-### True Full Screen ###
+### True Full Screen
+
 Toggles the browser's full screen mode when full screen mode is toggled via a button or the keyboard shortcut 'z'
 
 Before
@@ -40,7 +46,8 @@ After
 
 ![trueFullScreenAfter.png](src/entrypoints/trueFullScreen/images/after.png)
 
-### Collapse Left Panel on Full Screen ###
+### Collapse Left Panel on Full Screen
+
 Collapses/expands the left panel when full screen mode is toggled via a button or the keyboard shortcut 'z'
 
 Before
@@ -51,7 +58,8 @@ After
 
 ![autoCollapseLeftPanelAfter.png](src/entrypoints/autoCollapseLeftPanel/images/after.png)
 
-### Comment Highlight Toggle ###
+### Comment Highlight Toggle
+
 Adds a button that toggles the visibility of code comment highlights and remembers the visibility between sessions
 
 Before
@@ -62,7 +70,8 @@ After
 
 ![commentHighlightToggleAfter.png](src/entrypoints/commentHighlightToggle/images/after.png)
 
-### Single Horizontal Scrollbar ###
+### Single Horizontal Scrollbar
+
 Removes the horizontal scrollbars on individual files when viewing the files in a PR. Side-by-side view is not affected.
 
 Before
@@ -73,19 +82,22 @@ After
 
 ![singleHorizontalScrollbarAfter.png](src/entrypoints/singleHorizontalScrollbar/images/after.png)
 
-
-## FAQ ##
+## FAQ
 
 What happened to "Single Vertical Scrollbar"?
 
-This is now the default behaviour of Azure DevOps, so it's no longer required
+This is now the default behavior of Azure DevOps, so it's no longer required
 
+## Build from Source
 
-## Feedback ##
+- Requirements: Node >= 22.12.0 and npm >= 10.9.0
+- Run "npm install"
+- Run "npm run zip" for Chrome/Edge or "npm run zip:firefox" for Firefox
+
+## Feedback
 
 [Submit](https://bitbucket.org/unimorphic/azuredevopsprview/issues/new) bug reports and other feedback in the [issues](https://bitbucket.org/unimorphic/azuredevopsprview/issues?status=new&status=open) section
 
-
-## License ##
+## License
 
 MIT

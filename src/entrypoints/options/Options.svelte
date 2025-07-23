@@ -115,7 +115,7 @@
   </Accordion>
 {/if}
 
-<style type="text/scss">
+<style lang="scss">
   :global(.settings-banner) {
     margin-bottom: 32px;
   }
