@@ -56,7 +56,7 @@
   }
 </script>
 
-<h1>Azure DevOps PR View Options</h1>
+<h1>DevOps PR View Options</h1>
 
 <Banner
   class="settings-banner"

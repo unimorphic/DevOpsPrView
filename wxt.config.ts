@@ -30,7 +30,7 @@ export default defineConfig({
     },
     name: "DevOps PR View",
     permissions: ["scripting", "storage", "webNavigation"],
-    version: "0.9",
+    version: "1.0",
   },
   modules: ["@wxt-dev/module-svelte"],
   outDir: "dist",
