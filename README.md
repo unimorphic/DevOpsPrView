@@ -1,4 +1,4 @@
-# Azure DevOps PR View
+# DevOps PR View
 
 Browser extension which improves the Azure DevOps pull request (PR) view to make code reviews easier
 
