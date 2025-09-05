@@ -20,7 +20,7 @@ export default defineConfig({
     },
     description:
       "Improves the Azure DevOps pull request (PR) view to make code reviews easier",
-    homepage_url: "https://bitbucket.org/unimorphic/azuredevopsprview",
+    homepage_url: "https://bitbucket.org/unimorphic/devopsprview",
     host_permissions: ["https://dev.azure.com/", "https://*.visualstudio.com/"],
     icons: {
       "16": "/logos/logo16.png",
