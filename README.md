@@ -4,11 +4,11 @@ Browser extension which improves the Azure DevOps pull request (PR) view to make
 
 ## Install
 
-[Chrome Web Store](https://chromewebstore.google.com/detail/azure-devops-pr-view/imhdlkegjegakidnjoebonfmhklflnpl)
+[Chrome Web Store](https://chromewebstore.google.com/detail/devops-pr-view/imhdlkegjegakidnjoebonfmhklflnpl)
 
-[Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/azure-devops-pr-view/fednimhmghfnfiiamjjedpgnmjfmjdld)
+[Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/devops-pr-view/fednimhmghfnfiiamjjedpgnmjfmjdld)
 
-[Firefox Add-ons](https://addons.mozilla.org/en-CA/firefox/addon/azure-devops-pr-view/)
+[Firefox Add-ons](https://addons.mozilla.org/en-CA/firefox/addon/devops-pr-view/)
 
 ## Features
 
