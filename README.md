@@ -100,7 +100,7 @@ This is now the default behavior of Azure DevOps, so it's no longer required
 
 ## Feedback
 
-[Submit](https://bitbucket.org/unimorphic/devopsprview/issues/new) bug reports and other feedback in the [issues](https://bitbucket.org/unimorphic/devopsprview/issues?status=new&status=open) section
+[Submit](https://github.com/unimorphic/DevOpsPrView/issues/new) bug reports and other feedback in the [issues](https://github.com/unimorphic/DevOpsPrView/issues) section
 
 ## License
 
